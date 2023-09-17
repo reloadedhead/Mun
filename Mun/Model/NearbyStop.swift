@@ -76,7 +76,6 @@ extension URL {
         components.scheme = "https"
         components.host = "www.mvg.de"
         components.path = "/api/fib/v2/station/nearby?latitude=\(latitude)&longitude=\(longitude)"
-        print(components.url!)
         return components.url!
     }
 }
