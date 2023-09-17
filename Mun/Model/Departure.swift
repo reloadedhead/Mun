@@ -8,10 +8,10 @@
 import Foundation
 
 struct Departure: Codable {
-    var plannedDepartureTime: Int
-    var realTime: Bool
-    var delayInMinutes: Int
-    var realDepartureTime: Int
+    var plannedDepartureTime: Double
+    var realtime: Bool
+    var delayInMinutes: Int?
+    var realtimeDepartureTime: Double
     var transportType: Transport
     var label: String
     var divaId: String
@@ -20,11 +20,16 @@ struct Departure: Codable {
     var destination: String
     var cancelled: Bool
     var sev: Bool
-    var platform: Int
-    var stopPositionNumber: Int
+    var platform: Int?
+    var stopPositionNumber: Int?
     var bannerHash: String
     var occupancy: String
     var stopPointGlobalId: String
+}
+
+extension Departure {
+    var plannedDeparture: Date { Date(timeIntervalSince1970: self.plannedDepartureTime / 1000) }
+    var realDeparture: Date { Date(timeIntervalSince1970: self.realtimeDepartureTime / 1000) }
 }
 
 extension Departure {

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum Transport: String, CustomStringConvertible, Codable {
     case SBAHN = "SBAHN"
@@ -26,6 +27,22 @@ enum Transport: String, CustomStringConvertible, Codable {
             "Tram"
         case .BAHN:
             "Train"
+        }
+    }
+    
+    @ViewBuilder
+    var icon: some View {
+        switch self {
+            case .BUS:
+                Image(systemName: "bus")
+            case .SBAHN:
+                Image(systemName: "tram")
+            case .UBAHN:
+                Image(systemName: "tram.fill.tunnel")
+            case .TRAM:
+                Image(systemName: "cablecar")
+            case .BAHN:
+                Image(systemName: "tram")
         }
     }
 }
