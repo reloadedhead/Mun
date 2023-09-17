@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct NearbyStop: Codable {
-    var latitude: Float
-    var longitude: Float
+    var latitude: Double
+    var longitude: Double
     var place: String
     var name: String
     var globalId: String
@@ -23,8 +24,45 @@ struct NearbyStop: Codable {
 }
 
 extension NearbyStop {
-    static func near(latitude: Float, longitude: Float) -> Resource<[NearbyStop]> {
+    var systemImage: String {
+        if self.transportTypes.count > 1 {
+            return "circle.hexagongrid.fill"
+        } else {
+            if let transport = self.transportTypes.first {
+                switch (transport) {
+                case .BUS:
+                    return "bus"
+                case .SBAHN:
+                    return "tram"
+                case .UBAHN:
+                    return "tram.fill.tunnel"
+                case .TRAM:
+                    return "cablecar"
+                case .BAHN:
+                    return "tram"
+                }
+            } else {
+                return ""
+            }
+        }
+    }
+    
+    var coordinate: CLLocationCoordinate2D {
+        CLLocationCoordinate2D(latitude: self.latitude, longitude: self.longitude)
+    }
+}
+
+extension NearbyStop {
+    static func near(latitude: Double, longitude: Double) -> Resource<[NearbyStop]> {
         guard let url = URL.nearbyStops(latitude: latitude, longitude: longitude) else {
+            fatalError("Whoops")
+        }
+        
+        return Resource(url: url, method: .get([]))
+    }
+    
+    static func near(_ location: CLLocationCoordinate2D) -> Resource<[NearbyStop]> {
+        guard let url = URL.nearbyStops(latitude: location.latitude, longitude: location.longitude) else {
             fatalError("Whoops")
         }
         
@@ -33,7 +71,7 @@ extension NearbyStop {
 }
 
 extension URL {
-    static func nearbyStops(latitude: Float, longitude: Float) -> URL? {
+    static func nearbyStops(latitude: Double, longitude: Double) -> URL? {
         var components = URLComponents()
         components.scheme = "https"
         components.host = "www.mvg.de"
