@@ -12,6 +12,7 @@ struct NearbyView: View {
     @State private var nearbyStops: [NearbyStop] = []
     @State private var isLoading = false
     @State private var position: MapCameraPosition = .userLocation(fallback: .automatic)
+    @State private var camera: MapCamera?
     @StateObject private var locationManager = LocationManager()
     
     private var cantLocate: Bool { locationManager.location == nil }
@@ -25,8 +26,11 @@ struct NearbyView: View {
                         Marker(nearbyStop.name,
                                systemImage: nearbyStop.systemImage,
                                coordinate: nearbyStop.coordinate
-                        )
+                        ).tag(nearbyStop.globalId)
                     }
+                }
+                .onMapCameraChange(frequency: .onEnd) { context in
+                    self.camera = context.camera
                 }
                 .mapControls {
                     MapCompass()
@@ -54,7 +58,14 @@ struct NearbyView: View {
         }
         .navigationTitle("Nearby stops")
         .navigationBarTitleDisplayMode(.inline)
-        .task { await loadNearbyStops() }
+        .task { await self.loadNearbyStops() }
+        .onChange(of: camera) {
+            Task {
+                if let camera = self.camera {
+                    await self.loadNearbyStops(to: camera.centerCoordinate)
+                }
+            }
+        }
     }
     
     private func loadNearbyStops() async {
@@ -64,6 +75,16 @@ struct NearbyView: View {
                 nearbyStops = try await Fetch().load(NearbyStop.near(currentLocation))
                 isLoading.toggle()
             }
+        } catch {
+            print(error)
+        }
+    }
+    
+    private func loadNearbyStops(to location: CLLocationCoordinate2D) async {
+        do {
+            isLoading.toggle()
+            nearbyStops = try await Fetch().load(NearbyStop.near(location))
+            isLoading.toggle()
         } catch {
             print(error)
         }
