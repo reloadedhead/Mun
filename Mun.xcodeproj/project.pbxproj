@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C359612D2AB7332900D487C2 /* NearbyStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = C359612C2AB7332900D487C2 /* NearbyStop.swift */; };
+		C35961302AB7408E00D487C2 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C359612F2AB7408E00D487C2 /* LocationManager.swift */; };
 		C37E95362AB45EBD00024A7D /* MunApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37E95352AB45EBD00024A7D /* MunApp.swift */; };
 		C37E95382AB45EBD00024A7D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37E95372AB45EBD00024A7D /* ContentView.swift */; };
 		C37E953C2AB45EBE00024A7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C37E953B2AB45EBE00024A7D /* Assets.xcassets */; };
@@ -20,6 +21,8 @@
 
 /* Begin PBXFileReference section */
 		C359612C2AB7332900D487C2 /* NearbyStop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyStop.swift; sourceTree = "<group>"; };
+		C359612F2AB7408E00D487C2 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		C35961332AB75F6900D487C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C37E95322AB45EBD00024A7D /* Mun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C37E95352AB45EBD00024A7D /* MunApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MunApp.swift; sourceTree = "<group>"; };
 		C37E95372AB45EBD00024A7D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -46,6 +49,7 @@
 		C359612E2AB7403D00D487C2 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				C359612F2AB7408E00D487C2 /* LocationManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -69,6 +73,7 @@
 		C37E95342AB45EBD00024A7D /* Mun */ = {
 			isa = PBXGroup;
 			children = (
+				C35961332AB75F6900D487C2 /* Info.plist */,
 				C359612E2AB7403D00D487C2 /* Managers */,
 				C37E954E2AB5EC7100024A7D /* Network */,
 				C37E954B2AB5E20800024A7D /* Model */,
@@ -190,6 +195,7 @@
 				C359612D2AB7332900D487C2 /* NearbyStop.swift in Sources */,
 				C37E95502AB5EC7700024A7D /* Fetch.swift in Sources */,
 				C37E954A2AB5E1FF00024A7D /* NearbyStopItemView.swift in Sources */,
+				C35961302AB7408E00D487C2 /* LocationManager.swift in Sources */,
 				C37E954D2AB5E21C00024A7D /* Stop.swift in Sources */,
 				C37E95362AB45EBD00024A7D /* MunApp.swift in Sources */,
 				C37E95482AB45F8C00024A7D /* NearbyView.swift in Sources */,
@@ -322,8 +328,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mun/Preview Content\"";
+				DEVELOPMENT_TEAM = Q2U37Y95QK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Mun/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Mun;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Mun requires your location to provide you with nearby stops.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -332,8 +343,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -359,8 +370,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mun/Preview Content\"";
+				DEVELOPMENT_TEAM = Q2U37Y95QK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Mun/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Mun;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Mun requires your location to provide you with nearby stops.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -369,8 +385,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
