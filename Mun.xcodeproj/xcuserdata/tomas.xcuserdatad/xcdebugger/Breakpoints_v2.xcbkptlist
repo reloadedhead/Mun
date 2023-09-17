@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "D4C08AFC-DEF7-4EF0-9AAE-2D680D853343"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B910BA2D-BBDC-48B9-8E7B-790FD9096F58"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mun/Network/Fetch.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "load(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B910BA2D-BBDC-48B9-8E7B-790FD9096F58 - dd9330fd3dbfc5c4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for Mun.Fetch.load&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable, &#x3c4;_0_0: Swift.Encodable&gt;(Mun.Resource&lt;&#x3c4;_0_0&gt;) async throws -&gt; &#x3c4;_0_0"
+                  moduleName = "Mun"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomas/Developer/Mun/Mun/Network/Fetch.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "2332">
+               </Location>
+               <Location
+                  uuid = "B910BA2D-BBDC-48B9-8E7B-790FD9096F58 - 478a2549be3098e2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for Mun.Fetch.load&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable, &#x3c4;_0_0: Swift.Encodable&gt;(Mun.Resource&lt;&#x3c4;_0_0&gt;) async throws -&gt; &#x3c4;_0_0"
+                  moduleName = "Mun"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomas/Developer/Mun/Mun/Network/Fetch.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "B910BA2D-BBDC-48B9-8E7B-790FD9096F58 - 4e01641a9a4481c2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Mun.Fetch.load&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable, &#x3c4;_0_0: Swift.Encodable&gt;(Mun.Resource&lt;&#x3c4;_0_0&gt;) async throws -&gt; &#x3c4;_0_0"
+                  moduleName = "Mun"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomas/Developer/Mun/Mun/Network/Fetch.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "152">
+               </Location>
+               <Location
+                  uuid = "B910BA2D-BBDC-48B9-8E7B-790FD9096F58 - 484e685571e245"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for Mun.Fetch.load&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable, &#x3c4;_0_0: Swift.Encodable&gt;(Mun.Resource&lt;&#x3c4;_0_0&gt;) async throws -&gt; &#x3c4;_0_0"
+                  moduleName = "Mun"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomas/Developer/Mun/Mun/Network/Fetch.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "B910BA2D-BBDC-48B9-8E7B-790FD9096F58 - 484e685571e3c1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for Mun.Fetch.load&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable, &#x3c4;_0_0: Swift.Encodable&gt;(Mun.Resource&lt;&#x3c4;_0_0&gt;) async throws -&gt; &#x3c4;_0_0"
+                  moduleName = "Mun"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomas/Developer/Mun/Mun/Network/Fetch.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "100">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
