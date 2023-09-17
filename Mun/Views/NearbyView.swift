@@ -17,11 +17,12 @@ struct NearbyView: View {
     
     private var cantLocate: Bool { locationManager.location == nil }
     private var noStops: Bool { nearbyStops.count == 0 }
+    private var bounds = MapCameraBounds(maximumDistance: 5000)
     
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 0) {
-                Map(position: $position) {
+                Map(position: $position, bounds: bounds) {
                     ForEach(nearbyStops, id: \.divaId) { nearbyStop in
                         Marker(nearbyStop.name,
                                systemImage: nearbyStop.systemImage,
@@ -29,9 +30,7 @@ struct NearbyView: View {
                         ).tag(nearbyStop.globalId)
                     }
                 }
-                .onMapCameraChange(frequency: .onEnd) { context in
-                    self.camera = context.camera
-                }
+                .onMapCameraChange(frequency: .onEnd, self.updateMapCamera(context:))
                 .mapControls {
                     MapCompass()
                     MapUserLocationButton()
@@ -58,7 +57,6 @@ struct NearbyView: View {
         }
         .navigationTitle("Nearby stops")
         .navigationBarTitleDisplayMode(.inline)
-        .task { await self.loadNearbyStops() }
         .onChange(of: camera) {
             Task {
                 if let camera = self.camera {
@@ -87,6 +85,19 @@ struct NearbyView: View {
             isLoading.toggle()
         } catch {
             print(error)
+        }
+    }
+    
+    private func updateMapCamera(context: MapCameraUpdateContext) {
+        if let camera = self.camera {
+            let currentLocation = CLLocation(latitude: camera.centerCoordinate.latitude, longitude: camera.centerCoordinate.longitude)
+            let newLocation = CLLocation(latitude: context.camera.centerCoordinate.latitude, longitude: context.camera.centerCoordinate.longitude)
+            
+            if currentLocation.distance(from: newLocation) > 750 {
+                self.camera = context.camera
+            }
+        } else {
+            self.camera = context.camera
         }
     }
 }
