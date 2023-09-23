@@ -6,12 +6,10 @@
 //
 
 import SwiftUI
-import AlertToast
 
 struct StopDetailView: View {
     @State private var departures = [Departure]()
     @State private var isLoading = false
-    @State private var showErrorToast = false
     var stop: NearbyStop
     
     var body: some View {
@@ -30,24 +28,23 @@ struct StopDetailView: View {
                                 DepartureItemView(departure: departure)
                             }
                         }
-                    }
+                    }.refreshable { await self.loadDepartures() }
                 }
             }
         }
         .navigationTitle(stop.name)
-        .toast(isPresenting: $showErrorToast) {
-            AlertToast(displayMode: .hud, type: .error(.red), title: "Error loading departures.")
+        .task {
+            isLoading.toggle()
+            await self.loadDepartures()
+            isLoading.toggle()
         }
-        .task { await self.loadDepartures() }
     }
     
     private func loadDepartures() async {
         do {
-            isLoading.toggle()
             departures = try await Fetch().load(Departure.from(stopId: stop.globalId)).sorted { $0.realDeparture > $1.realDeparture }
-            isLoading.toggle()
         } catch {
-            showErrorToast.toggle()
+            print(error)
         }
     }
 }

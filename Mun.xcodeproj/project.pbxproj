@@ -20,7 +20,6 @@
 		C37E95482AB45F8C00024A7D /* NearbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37E95472AB45F8C00024A7D /* NearbyView.swift */; };
 		C37E954A2AB5E1FF00024A7D /* NearbyStopItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37E95492AB5E1FF00024A7D /* NearbyStopItemView.swift */; };
 		C37E95502AB5EC7700024A7D /* Fetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37E954F2AB5EC7700024A7D /* Fetch.swift */; };
-		C3E47ACB2ABEFC9600D5A78F /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = C3E47ACA2ABEFC9600D5A78F /* AlertToast */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,7 +46,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3E47ACB2ABEFC9600D5A78F /* AlertToast in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,7 +155,6 @@
 			);
 			name = Mun;
 			packageProductDependencies = (
-				C3E47ACA2ABEFC9600D5A78F /* AlertToast */,
 			);
 			productName = Mun;
 			productReference = C37E95322AB45EBD00024A7D /* Mun.app */;
@@ -188,7 +185,6 @@
 			);
 			mainGroup = C37E95292AB45EBD00024A7D;
 			packageReferences = (
-				C3E47AC92ABEFC9600D5A78F /* XCRemoteSwiftPackageReference "AlertToast" */,
 			);
 			productRefGroup = C37E95332AB45EBD00024A7D /* Products */;
 			projectDirPath = "";
@@ -453,25 +449,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		C3E47AC92ABEFC9600D5A78F /* XCRemoteSwiftPackageReference "AlertToast" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/elai950/AlertToast";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.3.9;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		C3E47ACA2ABEFC9600D5A78F /* AlertToast */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C3E47AC92ABEFC9600D5A78F /* XCRemoteSwiftPackageReference "AlertToast" */;
-			productName = AlertToast;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C37E952A2AB45EBD00024A7D /* Project object */;
 }
