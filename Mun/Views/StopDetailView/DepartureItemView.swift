@@ -11,7 +11,7 @@ struct DepartureItemView: View {
     var departure: Departure
     
     var body: some View {
-        HStack(alignment: .center) {
+        HStack(alignment: .center, spacing: 8) {
             departure.transportType.icon
             VStack(alignment: .leading) {
                 Text(departure.label)
@@ -28,7 +28,10 @@ struct DepartureItemView: View {
             
             VStack(alignment: .trailing) {
                 Text(departure.plannedDeparture.formatted(date: .omitted, time: .shortened))
-                if let delayInMinutes = departure.delayInMinutes {
+                    .strikethrough(departure.cancelled, color: .red)
+                if departure.cancelled {
+                    Text("Cancelled").font(.footnote).foregroundStyle(.red)
+                } else if let delayInMinutes = departure.delayInMinutes {
                     if (delayInMinutes > 0) {
                         Text("+ \(delayInMinutes)m").foregroundStyle(.red)
                     } else {
@@ -45,5 +48,9 @@ struct DepartureItemView: View {
 }
 
 #Preview {
-    DepartureItemView(departure: Departure(plannedDepartureTime: 1694973120000, realtime: true, delayInMinutes: 1, realtimeDepartureTime: 1694973180000, transportType: .SBAHN, label: "S6", divaId: "1", network: "ddb", trainType: "", destination: "Ebersberg", cancelled: false, sev: false, platform: 10, bannerHash: "", occupancy: "UNKNOWN", stopPointGlobalId: ""))
+    DepartureItemView(departure: Departure(plannedDepartureTime: 1694973120000, realtime: true, delayInMinutes: 0, realtimeDepartureTime: 1694973180000, transportType: .SBAHN, label: "S6", divaId: "1", network: "ddb", trainType: "", destination: "Ebersberg", cancelled: false, sev: false, platform: 10, bannerHash: "", occupancy: "UNKNOWN", stopPointGlobalId: ""))
+}
+
+#Preview {
+    DepartureItemView(departure: Departure(plannedDepartureTime: 1694973120000, realtime: true, delayInMinutes: 1, realtimeDepartureTime: 1694973180000, transportType: .SBAHN, label: "S6", divaId: "1", network: "ddb", trainType: "", destination: "Ebersberg", cancelled: true, sev: false, platform: 10, bannerHash: "", occupancy: "UNKNOWN", stopPointGlobalId: ""))
 }
