@@ -23,43 +23,47 @@ struct DepartureItemView: View {
                 Text("To \(departure.destination)")
                     .font(.footnote)
                     .foregroundStyle(.gray)
-                if let platform = departure.platform {
-                    switch departure.transportType {
-                    case .SBAHN:
-                        Text("Platform \(platform)")
-                            .font(.footnote)
-                            .foregroundStyle(.gray)
-                    case .UBAHN:
-                        Text("Platform \(platform)")
-                            .font(.footnote)
-                            .foregroundStyle(.gray)
-                    case .BUS:
-                        Text("Stop \(platform)")
-                            .font(.footnote)
-                            .foregroundStyle(.gray)
-                    case .TRAM:
-                        Text("Stop \(platform)")
-                            .font(.footnote)
-                            .foregroundStyle(.gray)
-                    case .BAHN:
-                        Text("Platform \(platform)")
-                            .font(.footnote)
-                            .foregroundStyle(.gray)
-                    }
-                }
             }
             Spacer()
             
             VStack(alignment: .trailing) {
-                Text(departure.plannedDeparture.formatted(date: .omitted, time: .shortened))
-                    .strikethrough(departure.cancelled, color: .red)
+                if let delayInMinutes = departure.delayInMinutes {
+                    if delayInMinutes > 0 {
+                        Text(departure.realDeparture.formatted(date: .omitted, time: .shortened))
+                            .foregroundStyle(.red)
+                    } else {
+                        Text(departure.realDeparture.formatted(date: .omitted, time: .shortened))
+                    }
+                } else if departure.cancelled {
+                    Text(departure.plannedDeparture.formatted(date: .omitted, time: .shortened))
+                        .strikethrough(departure.cancelled, color: .red)
+                }
                 if departure.cancelled {
                     Text("Cancelled").font(.footnote).foregroundStyle(.red)
-                } else if let delayInMinutes = departure.delayInMinutes {
-                    if (delayInMinutes > 0) {
-                        Text("+ \(delayInMinutes)m").foregroundStyle(.red)
-                    } else {
-                        Text("On time").foregroundStyle(.green)
+                } else {
+                    if let platform = departure.platform {
+                        switch departure.transportType {
+                        case .SBAHN:
+                            Text("Platform \(platform)")
+                                .font(.footnote)
+                                .foregroundStyle(.gray)
+                        case .UBAHN:
+                            Text("Platform \(platform)")
+                                .font(.footnote)
+                                .foregroundStyle(.gray)
+                        case .BUS:
+                            Text("Stop \(platform)")
+                                .font(.footnote)
+                                .foregroundStyle(.gray)
+                        case .TRAM:
+                            Text("Stop \(platform)")
+                                .font(.footnote)
+                                .foregroundStyle(.gray)
+                        case .BAHN:
+                            Text("Platform \(platform)")
+                                .font(.footnote)
+                                .foregroundStyle(.gray)
+                        }
                     }
                 }
             }
