@@ -23,6 +23,10 @@ struct DepartureItemView: View {
                 Text("To \(departure.destination)")
                     .font(.footnote)
                     .foregroundStyle(.gray)
+                
+                if let message = departure.messages.first {
+                    Text(message).font(.footnote).foregroundStyle(.gray)
+                }
             }
             Spacer()
             
@@ -72,13 +76,13 @@ struct DepartureItemView: View {
 }
 
 #Preview {
-    DepartureItemView(departure: Departure(plannedDepartureTime: 1694973120000, realtime: true, delayInMinutes: 1, realtimeDepartureTime: 1694973180000, transportType: .SBAHN, label: "S6", divaId: "1", network: "ddb", trainType: "", destination: "Ebersberg", cancelled: false, sev: false, bannerHash: "", occupancy: "UNKNOWN", stopPointGlobalId: ""))
+    DepartureItemView(departure: Departure(plannedDepartureTime: 1694973120000, realtime: true, delayInMinutes: 1, realtimeDepartureTime: 1694973180000, transportType: .SBAHN, label: "S6", divaId: "1", network: "ddb", trainType: "", destination: "Ebersberg", cancelled: false, sev: false, bannerHash: "", occupancy: "UNKNOWN", stopPointGlobalId: "", messages: []))
 }
 
 #Preview {
-    DepartureItemView(departure: Departure(plannedDepartureTime: 1694973120000, realtime: true, delayInMinutes: 0, realtimeDepartureTime: 1694973180000, transportType: .SBAHN, label: "S6", divaId: "1", network: "ddb", trainType: "", destination: "Ebersberg", cancelled: false, sev: false, platform: 10, bannerHash: "", occupancy: "UNKNOWN", stopPointGlobalId: ""))
+    DepartureItemView(departure: Departure(plannedDepartureTime: 1694973120000, realtime: true, delayInMinutes: 0, realtimeDepartureTime: 1694973180000, transportType: .SBAHN, label: "S6", divaId: "1", network: "ddb", trainType: "", destination: "Ebersberg", cancelled: false, sev: false, platform: 10, bannerHash: "", occupancy: "UNKNOWN", stopPointGlobalId: "", messages: []))
 }
 
 #Preview {
-    DepartureItemView(departure: Departure(plannedDepartureTime: 1694973120000, realtime: true, delayInMinutes: 1, realtimeDepartureTime: 1694973180000, transportType: .SBAHN, label: "S6", divaId: "1", network: "ddb", trainType: "", destination: "Ebersberg", cancelled: true, sev: false, platform: 10, bannerHash: "", occupancy: "UNKNOWN", stopPointGlobalId: ""))
+    DepartureItemView(departure: Departure(plannedDepartureTime: 1694973120000, realtime: true, delayInMinutes: 1, realtimeDepartureTime: 1694973180000, transportType: .SBAHN, label: "S6", divaId: "1", network: "ddb", trainType: "", destination: "Ebersberg", cancelled: true, sev: false, platform: 10, bannerHash: "", occupancy: "UNKNOWN", stopPointGlobalId: "", messages: []))
 }

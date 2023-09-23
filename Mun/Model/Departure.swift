@@ -25,6 +25,7 @@ struct Departure: Codable, Hashable {
     var bannerHash: String
     var occupancy: String
     var stopPointGlobalId: String
+    var messages: [String]
 }
 
 extension Departure {
