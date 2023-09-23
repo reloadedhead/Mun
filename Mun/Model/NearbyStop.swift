@@ -40,6 +40,10 @@ extension NearbyStop {
                     return "cablecar"
                 case .BAHN:
                     return "tram"
+                case .REGIONAL_BUS:
+                    return "bus"
+                case .SCHIFF:
+                    return "ferry"
                 }
             } else {
                 return ""

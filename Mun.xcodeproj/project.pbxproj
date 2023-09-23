@@ -20,6 +20,9 @@
 		C37E95482AB45F8C00024A7D /* NearbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37E95472AB45F8C00024A7D /* NearbyView.swift */; };
 		C37E954A2AB5E1FF00024A7D /* NearbyStopItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37E95492AB5E1FF00024A7D /* NearbyStopItemView.swift */; };
 		C37E95502AB5EC7700024A7D /* Fetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37E954F2AB5EC7700024A7D /* Fetch.swift */; };
+		C3E47AD02ABF1D2E00D5A78F /* StopsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E47ACF2ABF1D2E00D5A78F /* StopsManager.swift */; };
+		C3E47AD22ABF1E4A00D5A78F /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E47AD12ABF1E4A00D5A78F /* Stop.swift */; };
+		C3E47AD52ABF210100D5A78F /* StopSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E47AD42ABF210100D5A78F /* StopSearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +42,9 @@
 		C37E95472AB45F8C00024A7D /* NearbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyView.swift; sourceTree = "<group>"; };
 		C37E95492AB5E1FF00024A7D /* NearbyStopItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyStopItemView.swift; sourceTree = "<group>"; };
 		C37E954F2AB5EC7700024A7D /* Fetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetch.swift; sourceTree = "<group>"; };
+		C3E47ACF2ABF1D2E00D5A78F /* StopsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopsManager.swift; sourceTree = "<group>"; };
+		C3E47AD12ABF1E4A00D5A78F /* Stop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stop.swift; sourceTree = "<group>"; };
+		C3E47AD42ABF210100D5A78F /* StopSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopSearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				C359612F2AB7408E00D487C2 /* LocationManager.swift */,
+				C3E47ACF2ABF1D2E00D5A78F /* StopsManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -113,6 +120,7 @@
 		C37E95462AB45F8200024A7D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C3E47AD32ABF20EF00D5A78F /* StopSearchView */,
 				C359613C2AB776C000D487C2 /* StopDetailView */,
 				C37E95472AB45F8C00024A7D /* NearbyView.swift */,
 				C37E95492AB5E1FF00024A7D /* NearbyStopItemView.swift */,
@@ -126,6 +134,7 @@
 				C35961342AB76FE200D487C2 /* Transport.swift */,
 				C359612C2AB7332900D487C2 /* NearbyStop.swift */,
 				C35961362AB7709400D487C2 /* Departure.swift */,
+				C3E47AD12ABF1E4A00D5A78F /* Stop.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -136,6 +145,14 @@
 				C37E954F2AB5EC7700024A7D /* Fetch.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		C3E47AD32ABF20EF00D5A78F /* StopSearchView */ = {
+			isa = PBXGroup;
+			children = (
+				C3E47AD42ABF210100D5A78F /* StopSearchView.swift */,
+			);
+			path = StopSearchView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,13 +229,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3E47AD52ABF210100D5A78F /* StopSearchView.swift in Sources */,
 				C37E95382AB45EBD00024A7D /* ContentView.swift in Sources */,
 				C359613B2AB773B800D487C2 /* StopDetailView.swift in Sources */,
 				C35961352AB76FE200D487C2 /* Transport.swift in Sources */,
 				C359612D2AB7332900D487C2 /* NearbyStop.swift in Sources */,
 				C37E95502AB5EC7700024A7D /* Fetch.swift in Sources */,
+				C3E47AD02ABF1D2E00D5A78F /* StopsManager.swift in Sources */,
 				C37E954A2AB5E1FF00024A7D /* NearbyStopItemView.swift in Sources */,
 				C35961302AB7408E00D487C2 /* LocationManager.swift in Sources */,
+				C3E47AD22ABF1E4A00D5A78F /* Stop.swift in Sources */,
 				C35961372AB7709400D487C2 /* Departure.swift in Sources */,
 				C37E95362AB45EBD00024A7D /* MunApp.swift in Sources */,
 				C359613E2AB776DD00D487C2 /* DepartureItemView.swift in Sources */,

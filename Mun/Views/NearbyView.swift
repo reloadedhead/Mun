@@ -13,6 +13,7 @@ struct NearbyView: View {
     @State private var isLoading = false
     @State private var position: MapCameraPosition = .userLocation(fallback: .automatic)
     @State private var camera: MapCamera?
+    @State private var isPresentingSearchSheet = false
     @StateObject private var locationManager = LocationManager()
     
     private var cantLocate: Bool { locationManager.location == nil }
@@ -59,6 +60,14 @@ struct NearbyView: View {
         }
         .navigationTitle("Nearby stops")
         .navigationBarTitleDisplayMode(.inline)
+        .sheet(isPresented: $isPresentingSearchSheet) { StopSearchView() }
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button("Search stop", systemImage: "magnifyingglass") {
+                    isPresentingSearchSheet.toggle()
+                }
+            }
+        }
         .onChange(of: camera) {
             Task {
                 if let camera = self.camera {

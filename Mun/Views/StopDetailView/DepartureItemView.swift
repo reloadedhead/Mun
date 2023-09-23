@@ -59,12 +59,20 @@ struct DepartureItemView: View {
                             Text("Stop \(platform)")
                                 .font(.footnote)
                                 .foregroundStyle(.gray)
+                        case .REGIONAL_BUS:
+                            Text("Stop \(platform)")
+                                .font(.footnote)
+                                .foregroundStyle(.gray)
                         case .TRAM:
                             Text("Stop \(platform)")
                                 .font(.footnote)
                                 .foregroundStyle(.gray)
                         case .BAHN:
                             Text("Platform \(platform)")
+                                .font(.footnote)
+                                .foregroundStyle(.gray)
+                        case .SCHIFF:
+                            Text("Pier \(platform)")
                                 .font(.footnote)
                                 .foregroundStyle(.gray)
                         }

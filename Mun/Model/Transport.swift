@@ -14,6 +14,8 @@ enum Transport: String, CustomStringConvertible, Codable {
     case BUS = "BUS"
     case TRAM = "TRAM"
     case BAHN = "BAHN"
+    case REGIONAL_BUS = "REGIONAL_BUS"
+    case SCHIFF = "SCHIFF"
     
     var description: String {
         switch self {
@@ -23,10 +25,15 @@ enum Transport: String, CustomStringConvertible, Codable {
             "U-Bahn"
         case .BUS:
             "Bus"
+        case .REGIONAL_BUS:
+            "Regional bus"
         case .TRAM:
             "Tram"
         case .BAHN:
             "Train"
+        case .SCHIFF:
+            "Ferry"
+            
         }
     }
     
@@ -34,7 +41,9 @@ enum Transport: String, CustomStringConvertible, Codable {
     var icon: some View {
         switch self {
             case .BUS:
-            Image(systemName: "bus")
+                Image(systemName: "bus")
+            case .REGIONAL_BUS:
+                Image(systemName: "bus")
             case .SBAHN:
                 Image(systemName: "tram")
             case .UBAHN:
@@ -43,6 +52,15 @@ enum Transport: String, CustomStringConvertible, Codable {
                 Image(systemName: "cablecar")
             case .BAHN:
                 Image(systemName: "tram")
+            case .SCHIFF:
+                Image(systemName: "ferry")
+            
         }
+    }
+}
+
+extension [Transport] {
+    func join() -> String {
+        return self.map { $0.description }.joined(separator: ", ")
     }
 }

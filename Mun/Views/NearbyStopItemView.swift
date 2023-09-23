@@ -43,18 +43,7 @@ private struct TransportTypeIcon: View {
                 .symbolRenderingMode(.multicolor)
         } else {
             if let transport = transports.first {
-                switch (transport) {
-                case .BUS:
-                    Image(systemName: "bus")
-                case .SBAHN:
-                    Image(systemName: "tram")
-                case .UBAHN:
-                    Image(systemName: "tram.fill.tunnel")
-                case .TRAM:
-                    Image(systemName: "cablecar")
-                case .BAHN:
-                    Image(systemName: "tram")
-                }
+                transport.icon
             }
         }
     }
