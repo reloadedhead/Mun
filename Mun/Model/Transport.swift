@@ -34,7 +34,7 @@ enum Transport: String, CustomStringConvertible, Codable {
     var icon: some View {
         switch self {
             case .BUS:
-                Image(systemName: "bus")
+            Image(systemName: "bus")
             case .SBAHN:
                 Image(systemName: "tram")
             case .UBAHN:
