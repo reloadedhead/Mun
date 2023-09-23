@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import AlertToast
 
 struct StopDetailView: View {
     @State private var departures = [Departure]()
     @State private var isLoading = false
+    @State private var showErrorToast = false
     var stop: NearbyStop
     
     var body: some View {
@@ -19,26 +21,33 @@ struct StopDetailView: View {
                 ProgressView()
                 Spacer()
             } else {
-                List {
-                    Section("Departures") {
-                        ForEach(departures, id: \.divaId) { departure in
-                            DepartureItemView(departure: departure)
+                if (departures.isEmpty) {
+                    ContentUnavailableView("No departures", systemImage: "clock.badge.xmark", description: Text("There is nothing departing from \(stop.name) right now."))
+                } else {
+                    List {
+                        Section("Departures") {
+                            ForEach(departures, id: \.self) { departure in
+                                DepartureItemView(departure: departure)
+                            }
                         }
                     }
                 }
             }
         }
         .navigationTitle(stop.name)
+        .toast(isPresenting: $showErrorToast) {
+            AlertToast(displayMode: .hud, type: .error(.red), title: "Error loading departures.")
+        }
         .task { await self.loadDepartures() }
     }
     
     private func loadDepartures() async {
         do {
             isLoading.toggle()
-            departures = try await Fetch().load(Departure.from(stopId: stop.globalId))
+            departures = try await Fetch().load(Departure.from(stopId: stop.globalId)).sorted { $0.realDeparture > $1.realDeparture }
             isLoading.toggle()
         } catch {
-            print(error)
+            showErrorToast.toggle()
         }
     }
 }

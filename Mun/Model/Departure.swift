@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Departure: Codable {
+struct Departure: Codable, Hashable {
     var plannedDepartureTime: Double
     var realtime: Bool
     var delayInMinutes: Int?
