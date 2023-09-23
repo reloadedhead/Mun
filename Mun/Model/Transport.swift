@@ -8,30 +8,30 @@
 import Foundation
 import SwiftUI
 
-enum Transport: String, CustomStringConvertible, Codable {
-    case SBAHN = "SBAHN"
-    case UBAHN = "UBAHN"
-    case BUS = "BUS"
-    case TRAM = "TRAM"
-    case BAHN = "BAHN"
-    case REGIONAL_BUS = "REGIONAL_BUS"
-    case SCHIFF = "SCHIFF"
+enum Transport: String, CustomStringConvertible, Codable, CaseIterable {
+    case sbahn = "SBAHN"
+    case ubahn = "UBAHN"
+    case bus = "BUS"
+    case tram = "TRAM"
+    case bahn = "BAHN"
+    case regionalBus = "REGIONAL_BUS"
+    case ferry = "SCHIFF"
     
     var description: String {
         switch self {
-        case .SBAHN:
+        case .sbahn:
             "S-Bahn"
-        case .UBAHN:
+        case .ubahn:
             "U-Bahn"
-        case .BUS:
+        case .bus:
             "Bus"
-        case .REGIONAL_BUS:
+        case .regionalBus:
             "Regional bus"
-        case .TRAM:
+        case .tram:
             "Tram"
-        case .BAHN:
-            "Train"
-        case .SCHIFF:
+        case .bahn:
+            "Regional train"
+        case .ferry:
             "Ferry"
             
         }
@@ -40,19 +40,19 @@ enum Transport: String, CustomStringConvertible, Codable {
     @ViewBuilder
     var icon: some View {
         switch self {
-            case .BUS:
+            case .bus:
                 Image(systemName: "bus")
-            case .REGIONAL_BUS:
+            case .regionalBus:
                 Image(systemName: "bus")
-            case .SBAHN:
+            case .sbahn:
                 Image(systemName: "tram")
-            case .UBAHN:
+            case .ubahn:
                 Image(systemName: "tram.fill.tunnel")
-            case .TRAM:
+            case .tram:
                 Image(systemName: "cablecar")
-            case .BAHN:
+            case .bahn:
                 Image(systemName: "tram")
-            case .SCHIFF:
+            case .ferry:
                 Image(systemName: "ferry")
             
         }

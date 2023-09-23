@@ -47,31 +47,31 @@ struct DepartureItemView: View {
                 } else {
                     if let platform = departure.platform {
                         switch departure.transportType {
-                        case .SBAHN:
+                        case .sbahn:
                             Text("Platform \(platform)")
                                 .font(.footnote)
                                 .foregroundStyle(.gray)
-                        case .UBAHN:
+                        case .ubahn:
                             Text("Platform \(platform)")
                                 .font(.footnote)
                                 .foregroundStyle(.gray)
-                        case .BUS:
+                        case .bus:
                             Text("Stop \(platform)")
                                 .font(.footnote)
                                 .foregroundStyle(.gray)
-                        case .REGIONAL_BUS:
+                        case .regionalBus:
                             Text("Stop \(platform)")
                                 .font(.footnote)
                                 .foregroundStyle(.gray)
-                        case .TRAM:
+                        case .tram:
                             Text("Stop \(platform)")
                                 .font(.footnote)
                                 .foregroundStyle(.gray)
-                        case .BAHN:
+                        case .bahn:
                             Text("Platform \(platform)")
                                 .font(.footnote)
                                 .foregroundStyle(.gray)
-                        case .SCHIFF:
+                        case .ferry:
                             Text("Pier \(platform)")
                                 .font(.footnote)
                                 .foregroundStyle(.gray)
@@ -84,13 +84,13 @@ struct DepartureItemView: View {
 }
 
 #Preview {
-    DepartureItemView(departure: Departure(plannedDepartureTime: 1694973120000, realtime: true, delayInMinutes: 1, realtimeDepartureTime: 1694973180000, transportType: .SBAHN, label: "S6", divaId: "1", network: "ddb", trainType: "", destination: "Ebersberg", cancelled: false, sev: false, bannerHash: "", occupancy: "UNKNOWN", stopPointGlobalId: "", messages: []))
+    DepartureItemView(departure: Departure(plannedDepartureTime: 1694973120000, realtime: true, delayInMinutes: 1, realtimeDepartureTime: 1694973180000, transportType: .sbahn, label: "S6", divaId: "1", network: "ddb", trainType: "", destination: "Ebersberg", cancelled: false, sev: false, bannerHash: "", occupancy: "UNKNOWN", stopPointGlobalId: "", messages: []))
 }
 
 #Preview {
-    DepartureItemView(departure: Departure(plannedDepartureTime: 1694973120000, realtime: true, delayInMinutes: 0, realtimeDepartureTime: 1694973180000, transportType: .SBAHN, label: "S6", divaId: "1", network: "ddb", trainType: "", destination: "Ebersberg", cancelled: false, sev: false, platform: 10, bannerHash: "", occupancy: "UNKNOWN", stopPointGlobalId: "", messages: []))
+    DepartureItemView(departure: Departure(plannedDepartureTime: 1694973120000, realtime: true, delayInMinutes: 0, realtimeDepartureTime: 1694973180000, transportType: .sbahn, label: "S6", divaId: "1", network: "ddb", trainType: "", destination: "Ebersberg", cancelled: false, sev: false, platform: 10, bannerHash: "", occupancy: "UNKNOWN", stopPointGlobalId: "", messages: []))
 }
 
 #Preview {
-    DepartureItemView(departure: Departure(plannedDepartureTime: 1694973120000, realtime: true, delayInMinutes: 1, realtimeDepartureTime: 1694973180000, transportType: .SBAHN, label: "S6", divaId: "1", network: "ddb", trainType: "", destination: "Ebersberg", cancelled: true, sev: false, platform: 10, bannerHash: "", occupancy: "UNKNOWN", stopPointGlobalId: "", messages: []))
+    DepartureItemView(departure: Departure(plannedDepartureTime: 1694973120000, realtime: true, delayInMinutes: 1, realtimeDepartureTime: 1694973180000, transportType: .sbahn, label: "S6", divaId: "1", network: "ddb", trainType: "", destination: "Ebersberg", cancelled: true, sev: false, platform: 10, bannerHash: "", occupancy: "UNKNOWN", stopPointGlobalId: "", messages: []))
 }

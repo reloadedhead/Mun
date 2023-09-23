@@ -30,19 +30,19 @@ extension NearbyStop {
         } else {
             if let transport = self.transportTypes.first {
                 switch (transport) {
-                case .BUS:
+                case .bus:
                     return "bus"
-                case .SBAHN:
+                case .sbahn:
                     return "tram"
-                case .UBAHN:
+                case .ubahn:
                     return "tram.fill.tunnel"
-                case .TRAM:
+                case .tram:
                     return "cablecar"
-                case .BAHN:
+                case .bahn:
                     return "tram"
-                case .REGIONAL_BUS:
+                case .regionalBus:
                     return "bus"
-                case .SCHIFF:
+                case .ferry:
                     return "ferry"
                 }
             } else {
