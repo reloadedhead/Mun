@@ -42,7 +42,7 @@ struct StopDetailView: View {
     
     private func loadDepartures() async {
         do {
-            departures = try await Fetch().load(Departure.from(stopId: stop.globalId)).sorted { $0.realDeparture > $1.realDeparture }
+            departures = try await Fetch().load(Departure.from(stopId: stop.globalId)).sorted { $0.realDeparture < $1.realDeparture }
         } catch {
             print(error)
         }
