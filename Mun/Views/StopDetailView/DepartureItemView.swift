@@ -14,7 +14,12 @@ struct DepartureItemView: View {
         HStack(alignment: .center, spacing: 8) {
             departure.transportType.icon
             VStack(alignment: .leading) {
-                Text(departure.label)
+                HStack {
+                    Text(departure.label)
+                    if departure.sev {
+                        Text("(SEV)")
+                    }
+                }
                 Text("To \(departure.destination)")
                     .font(.footnote)
                     .foregroundStyle(.gray)
