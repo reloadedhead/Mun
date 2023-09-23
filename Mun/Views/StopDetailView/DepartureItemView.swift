@@ -19,9 +19,28 @@ struct DepartureItemView: View {
                     .font(.footnote)
                     .foregroundStyle(.gray)
                 if let platform = departure.platform {
-                    Text("Platform \(platform)")
-                        .font(.footnote)
-                        .foregroundStyle(.gray)
+                    switch departure.transportType {
+                    case .SBAHN:
+                        Text("Platform \(platform)")
+                            .font(.footnote)
+                            .foregroundStyle(.gray)
+                    case .UBAHN:
+                        Text("Platform \(platform)")
+                            .font(.footnote)
+                            .foregroundStyle(.gray)
+                    case .BUS:
+                        Text("Stop \(platform)")
+                            .font(.footnote)
+                            .foregroundStyle(.gray)
+                    case .TRAM:
+                        Text("Stop \(platform)")
+                            .font(.footnote)
+                            .foregroundStyle(.gray)
+                    case .BAHN:
+                        Text("Platform \(platform)")
+                            .font(.footnote)
+                            .foregroundStyle(.gray)
+                    }
                 }
             }
             Spacer()
