@@ -57,6 +57,26 @@ enum Transport: String, CustomStringConvertible, Codable, CaseIterable {
             
         }
     }
+    
+    var systemImage: String {
+        switch self {
+            case .bus:
+                "bus"
+            case .regionalBus:
+                "bus"
+            case .sbahn:
+                "tram"
+            case .ubahn:
+                "tram.fill.tunnel"
+            case .tram:
+                "cablecar"
+            case .bahn:
+                "tram"
+            case .ferry:
+                "ferry"
+            
+        }
+    }
 }
 
 extension [Transport] {

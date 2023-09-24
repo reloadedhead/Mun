@@ -10,10 +10,21 @@ import SwiftUI
 struct StopDetailView: View {
     @State private var departures = [Departure]()
     @State private var isLoading = false
+    @State private var selectedTransport: Transport
+    
     var stop: NearbyStop
     
+    init(stop: NearbyStop) {
+        self.departures = []
+        self.isLoading = false
+        self.stop = stop
+        self.selectedTransport = stop.transportTypes.first!
+    }
+    
+    private var filteredDepartures: [Departure] { departures.filter { $0.transportType == selectedTransport } }
+    
     var body: some View {
-        ZStack {
+        VStack(alignment: .leading, spacing: 0) {
             if isLoading {
                 Spacer()
                 ProgressView()
@@ -22,13 +33,30 @@ struct StopDetailView: View {
                 if (departures.isEmpty) {
                     ContentUnavailableView("No departures", systemImage: "clock.badge.xmark", description: Text("There is nothing departing from \(stop.name) right now."))
                 } else {
-                    List {
-                        Section("Departures") {
-                            ForEach(departures, id: \.self) { departure in
-                                DepartureItemView(departure: departure)
+                    if stop.transportTypes.count > 1 {
+                        Picker("", selection: $selectedTransport) {
+                            ForEach(stop.transportTypes, id: \.self) { transport in
+                                HStack {
+                                    Label(transport.description, systemImage: transport.systemImage).labelStyle(.titleAndIcon)
+                                }.tag(transport)
                             }
-                        }
-                    }.refreshable { await self.loadDepartures() }
+                        }.pickerStyle(.palette).padding()
+                    }
+                    
+                    if filteredDepartures.isEmpty {
+                        ContentUnavailableView("No departures",
+                            systemImage: selectedTransport.systemImage,
+                            description: Text("There are no \(selectedTransport.description) departures.")
+                        )
+                    } else {
+                        List {
+                            Section("Departures") {
+                                ForEach(filteredDepartures, id: \.self) { departure in
+                                    DepartureItemView(departure: departure)
+                                }
+                            }
+                        }.refreshable { await self.loadDepartures() }
+                    }
                 }
             }
         }
@@ -51,7 +79,7 @@ struct StopDetailView: View {
 
 #Preview {
     NavigationStack {
-        StopDetailView(stop: NearbyStop(latitude: 48.13725, longitude: 11.57542, place: "München", name: "Marienplatz", globalId: "de:09162:2", divaId: 2, hasZoomData: true, transportTypes: [.UBAHN, .SBAHN, .BUS], aliases: "", surroundingPlanLink: "MP", tariffZones: "m", distanceInMeters: 153))
+        StopDetailView(stop: NearbyStop(latitude: 48.13725, longitude: 11.57542, place: "München", name: "Marienplatz", globalId: "de:09162:100", divaId: 2, hasZoomData: true, transportTypes: [.ubahn, .sbahn, .bus], aliases: "", surroundingPlanLink: "MP", tariffZones: "m", distanceInMeters: 153))
     }
     
 }
