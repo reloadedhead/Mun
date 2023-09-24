@@ -16,7 +16,7 @@ struct NearbyStopItemView: View {
     
     var body: some View {
         HStack {
-            TransportTypeIcon(transports: stop.transportTypes)
+            TransportsIconView(transports: stop.transportTypes)
             VStack(alignment: .leading) {
                 Text(stop.name)
                 Text(availableTransports)
@@ -32,25 +32,3 @@ struct NearbyStopItemView: View {
         stop.transportTypes.map { $0.description }.joined(separator: ", ")
     }
 }
-
-private struct TransportTypeIcon: View {
-    var transports: [Transport]
-    var isMultiTransport: Bool { self.transports.count > 1 }
-    
-    var body: some View {
-        if isMultiTransport {
-            Image(systemName: "circle.hexagongrid.fill")
-                .symbolRenderingMode(.multicolor)
-        } else {
-            if let transport = transports.first {
-                transport.icon
-            }
-        }
-    }
-}
-
-//private let mockStop = NearbyStop(name: "Pasing", place: "Munchen", id: "id", divaId: 1, abbreviation: "PA", tariffZones: "m", products: [.SBAHN, .UBAHN], latitude: 10.1, longitude: 10.0)
-//
-//#Preview {
-//    NearbyStopItemView(stop: mockStop, distance: 10)
-//}

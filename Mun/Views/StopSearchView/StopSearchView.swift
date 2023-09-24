@@ -25,9 +25,14 @@ struct StopSearchView: View {
         NavigationStack {
             List {
                 ForEach(stops, id: \.self) { stop in
-                    VStack(alignment: .leading) {
-                        Text(stop.name)
-                        Text(stop.products.join()).font(.footnote).foregroundStyle(.gray)
+                    NavigationLink(destination: StopDetailView(stop: stop)) {
+                        HStack {
+                            TransportsIconView(transports: stop.products)
+                            VStack(alignment: .leading) {
+                                Text(stop.name)
+                                Text(stop.products.join()).font(.footnote).foregroundStyle(.gray)
+                            }
+                        }
                     }
                 }
             }.toolbar {

@@ -27,6 +27,20 @@ extension Stop {
     }
 }
 
+extension Stop {
+    init(using nearbyStopModel: NearbyStop) {
+        self.name = nearbyStopModel.name
+        self.place = nearbyStopModel.place
+        self.id = nearbyStopModel.globalId
+        self.divaId = nearbyStopModel.divaId
+        self.abbreviation = nearbyStopModel.aliases
+        self.tariffZones = nearbyStopModel.tariffZones
+        self.products = nearbyStopModel.transportTypes
+        self.latitude = nearbyStopModel.latitude
+        self.longitude = nearbyStopModel.longitude
+    }
+}
+
 extension URL {
     static func stops() -> URL? {
         var components = URLComponents()

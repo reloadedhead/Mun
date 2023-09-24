@@ -49,9 +49,9 @@ struct NearbyView: View {
                     List {
                         Section("Nearby stops") {
                             ForEach(nearbyStops, id: \.divaId) { nearbyStop in
-                                NavigationLink(destination: StopDetailView(stop: nearbyStop)) {
-                                    NearbyStopItemView(stop: nearbyStop)
-                                }
+                                NavigationLink(
+                                    destination: StopDetailView(stop: Stop(using: nearbyStop))
+                                ) { NearbyStopItemView(stop: nearbyStop) }
                             }
                         }
                     }

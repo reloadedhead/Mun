@@ -12,13 +12,13 @@ struct StopDetailView: View {
     @State private var isLoading = false
     @State private var selectedTransport: Transport
     
-    var stop: NearbyStop
+    var stop: Stop
     
-    init(stop: NearbyStop) {
+    init(stop: Stop) {
         self.departures = []
         self.isLoading = false
         self.stop = stop
-        self.selectedTransport = stop.transportTypes.first!
+        self.selectedTransport = stop.products.first!
     }
     
     private var filteredDepartures: [Departure] { departures.filter { $0.transportType == selectedTransport } }
@@ -33,9 +33,9 @@ struct StopDetailView: View {
                 if (departures.isEmpty) {
                     ContentUnavailableView("No departures", systemImage: "clock.badge.xmark", description: Text("There is nothing departing from \(stop.name) right now."))
                 } else {
-                    if stop.transportTypes.count > 1 {
+                    if stop.products.count > 1 {
                         Picker("", selection: $selectedTransport) {
-                            ForEach(stop.transportTypes, id: \.self) { transport in
+                            ForEach(stop.products, id: \.self) { transport in
                                 HStack {
                                     Label(transport.description, systemImage: transport.systemImage).labelStyle(.titleAndIcon)
                                 }.tag(transport)
@@ -70,7 +70,7 @@ struct StopDetailView: View {
     
     private func loadDepartures() async {
         do {
-            departures = try await Fetch().load(Departure.from(stopId: stop.globalId)).sorted { $0.realDeparture < $1.realDeparture }
+            departures = try await Fetch().load(Departure.from(stopId: stop.id)).sorted { $0.realDeparture < $1.realDeparture }
         } catch {
             print(error)
         }
@@ -79,7 +79,7 @@ struct StopDetailView: View {
 
 #Preview {
     NavigationStack {
-        StopDetailView(stop: NearbyStop(latitude: 48.13725, longitude: 11.57542, place: "München", name: "Marienplatz", globalId: "de:09162:100", divaId: 2, hasZoomData: true, transportTypes: [.ubahn, .sbahn, .bus], aliases: "", surroundingPlanLink: "MP", tariffZones: "m", distanceInMeters: 153))
+        StopDetailView(stop: Stop(name: "Marienplatz", place: "München", id: "de:09162:100", divaId: 2, abbreviation: "", tariffZones: "m", products: [.ubahn, .sbahn, .bus], latitude: 48.13725, longitude: 11.57542))
     }
     
 }

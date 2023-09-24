@@ -23,6 +23,7 @@
 		C3E47AD02ABF1D2E00D5A78F /* StopsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E47ACF2ABF1D2E00D5A78F /* StopsManager.swift */; };
 		C3E47AD22ABF1E4A00D5A78F /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E47AD12ABF1E4A00D5A78F /* Stop.swift */; };
 		C3E47AD52ABF210100D5A78F /* StopSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E47AD42ABF210100D5A78F /* StopSearchView.swift */; };
+		C3E47AD82AC0D1E500D5A78F /* TransportsIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E47AD72AC0D1E500D5A78F /* TransportsIconView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		C3E47ACF2ABF1D2E00D5A78F /* StopsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopsManager.swift; sourceTree = "<group>"; };
 		C3E47AD12ABF1E4A00D5A78F /* Stop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stop.swift; sourceTree = "<group>"; };
 		C3E47AD42ABF210100D5A78F /* StopSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopSearchView.swift; sourceTree = "<group>"; };
+		C3E47AD72AC0D1E500D5A78F /* TransportsIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportsIconView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 		C37E95462AB45F8200024A7D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C3E47AD62AC0D1D000D5A78F /* Shared */,
 				C3E47AD32ABF20EF00D5A78F /* StopSearchView */,
 				C359613C2AB776C000D487C2 /* StopDetailView */,
 				C37E95472AB45F8C00024A7D /* NearbyView.swift */,
@@ -153,6 +156,14 @@
 				C3E47AD42ABF210100D5A78F /* StopSearchView.swift */,
 			);
 			path = StopSearchView;
+			sourceTree = "<group>";
+		};
+		C3E47AD62AC0D1D000D5A78F /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				C3E47AD72AC0D1E500D5A78F /* TransportsIconView.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,6 +246,7 @@
 				C35961352AB76FE200D487C2 /* Transport.swift in Sources */,
 				C359612D2AB7332900D487C2 /* NearbyStop.swift in Sources */,
 				C37E95502AB5EC7700024A7D /* Fetch.swift in Sources */,
+				C3E47AD82AC0D1E500D5A78F /* TransportsIconView.swift in Sources */,
 				C3E47AD02ABF1D2E00D5A78F /* StopsManager.swift in Sources */,
 				C37E954A2AB5E1FF00024A7D /* NearbyStopItemView.swift in Sources */,
 				C35961302AB7408E00D487C2 /* LocationManager.swift in Sources */,
