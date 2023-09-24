@@ -41,6 +41,8 @@ struct DepartureItemView: View {
                 } else if departure.cancelled {
                     Text(departure.plannedDeparture.formatted(date: .omitted, time: .shortened))
                         .strikethrough(departure.cancelled, color: .red)
+                } else {
+                    Text(departure.realDeparture.formatted(date: .omitted, time: .shortened))
                 }
                 if departure.cancelled {
                     Text("Cancelled").font(.footnote).foregroundStyle(.red)
